@@ -347,7 +347,7 @@ var commands = {
 		handler: function () {
 			process.stdout.write('\nHit '.red + 'Ctrl-C '.bold + 'to exit'.red);
 			process.stdout.write('\n\n'.reset);
-			cproc.spawn('tail', ['-F', './logs/output.log'], {
+			cproc.spawn('tail', ['--follow', './logs/output.log'], {
 				cwd: __dirname,
 				stdio: 'inherit',
 			});
@@ -365,7 +365,7 @@ var commands = {
 			cproc.fork(loaderPath, {
 				env: process.env,
 			});
-			cproc.spawn('tail', ['-F', './logs/output.log'], {
+			cproc.spawn('tail', ['--follow', './logs/output.log'], {
 				cwd: __dirname,
 				stdio: 'inherit',
 			});
